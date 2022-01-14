@@ -1,0 +1,78 @@
+<p-card header="Planilhas">
+    <p-panel [toggleable]="true">
+        <p-header>
+            <div align="left" style="color: var(--primary-color);">
+                <h6>
+                    <strong><i class="pi pi-cog"></i> Filtros</strong>
+                </h6>
+            </div>
+        </p-header>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div align="right">
+                    <button pButton pRipple type="button" label="Pesquisar" icon="pi pi-search"
+                        (click)="paginate();"></button>
+                    &nbsp;
+                    <button pButton pRipple type="button" label="Novo" icon="pi pi-plus" (click)="showForm()">
+                    </button>
+                    &nbsp;
+                    <button pButton pRipple type="button" label="Limpar filtros" (click)="buildForm(); paginate();"
+                        icon="pi pi-spin pi-spinner"></button>
+                </div>
+            </div>
+        </div>
+    </p-panel>
+    <br>
+    <p-card>
+        <app-table [resources]="resources" [filter-form]="filterForm" (paginate)="paginate($event)">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-bootstrap-head">
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Situação</th>
+                        <th>
+                            <div align="center">Ações</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="resources">
+                    <tr class="table-bootstrap-body" *ngFor="let rowData of
+                        resources.content">
+                        <td data-title="Código">
+                            {{ rowData.id }}
+                        </td>
+                        <td data-title="Nome">
+                            {{ rowData.name | valueOrTrace }}
+                        </td>
+                        <td data-title="Descrição">
+                            {{ rowData.description | valueOrTrace }}
+                        </td>
+                        <td data-title="Situação">
+                            {{ rowData.enabledDesc | valueOrTrace }}
+                        </td>
+                        <td data-title="Ação">
+                            <div align="center">
+                                <!-- <button title="Editar" pButton pRipple type="button" icon="fa fa-edit"
+                                    class="p-button-rounded" [routerLink]="'edit/' + rowData.id"
+                                    *ngIf="rowData.enabled">
+                                </button>
+                                &nbsp;
+                                <button title="Inativar" pButton pRipple type="button" icon="pi pi-times"
+                                    class="p-button-rounded p-button-danger"
+                                    (click)="activateOrDeactivate(rowData.id, false)" *ngIf="rowData.enabled">
+                                </button>
+                                <button title="Ativar" pButton pRipple type="button" icon="pi pi-check"
+                                    class="p-button-rounded p-button-success"
+                                    (click)="activateOrDeactivate(rowData.id, true)" *ngIf="!rowData.enabled">
+                                </button> -->
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </app-table>
+    </p-card>
+</p-card>

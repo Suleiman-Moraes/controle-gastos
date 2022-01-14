@@ -1,0 +1,28 @@
+<p-card>
+    <form [formGroup]="form" novalidate>
+        <div class="row">
+            <app-input class="col-md-4" for-name="year" name="Ano" mask="9999" [form]="form">
+            </app-input>
+            <app-combo class="col-md-8" name="Mês" [options]="months" [form]="form" for-name="month" text="text"
+                value="value">
+            </app-combo>
+        </div>
+    </form>
+</p-card>
+<p-card>
+    <div class="row">
+        <div class="col-md-6">
+            <div align="left">
+                <button pButton pRipple type="button" label="Cancelar" class="p-button-danger" (click)="close()"
+                    icon="pi pi-times">
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div align="right">
+                <button pButton pRipple type="button" label="Salvar" (click)="save()" icon="pi pi-save">
+                </button>
+            </div>
+        </div>
+    </div>
+</p-card>

@@ -1,0 +1,70 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-lightblue elevation-4">
+    <!-- Brand Logo -->
+    <a href="#/authpages" class="brand-link">
+        <img src="assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="assets/img/avatar.png" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#/authpages" class="nav-link">Usuário logado</a>
+            </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline form-side">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- <li class="nav-header">MULTI LEVEL EXAMPLE</li> -->
+                <li class="nav-item" *ngFor="let menu of menus">
+                    <a class="nav-link" [href]="'#' + menu.url" *ngIf="!menu.itens; else divNavLinkName">
+                        <i class="{{ menu.icon }} nav-icon"></i>
+                        <p>{{ menu.name }}</p>
+                    </a>
+                    <ng-template #divNavLinkName>
+                        <div class="nav-link pointer">
+                            <i class="{{ menu.icon }} nav-icon"></i>
+                            <p>
+                                {{ menu.name }}
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </div>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item" *ngFor="let item of menu.itens">
+                                <a class="nav-link" [href]="'#' + item.url">
+                                    <i class="{{ item.icon }} nav-icon"></i>
+                                    <p>{{ item.name }}</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </ng-template>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>

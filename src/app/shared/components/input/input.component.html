@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+    <app-input-template [for-name]="forName" [name]="name" [form]="form">
+        <input [placeholder]="name" [title]="name" type="text" pInputText [id]="forName" [formControlName]="forName"
+            class="cssInputPadrao" [imask]="imask" [unmask]="true" (blur)="onBlur($event)" *ngIf="!mask">
+        <p-inputMask [placeholder]="name" [title]="name" [id]="forName" [formControlName]="forName"
+            [style]="{'width':'100%', 'font-family': 'Euclid Circular B'}" *ngIf="mask" [mask]="mask" [unmask]="true"
+            [autoClear]="autoClear" slotChar=" " (onBlur)="onBlur($event)"></p-inputMask>
+    </app-input-template>
+</form>

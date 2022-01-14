@@ -1,0 +1,5 @@
+<label class="titleLabel font-padrao" [for]="forName">
+    <strong>{{ name }}</strong>
+</label>
+<ng-content></ng-content>
+<app-form-field-error [form]="form.get(forName)" *ngIf="form"></app-form-field-error>

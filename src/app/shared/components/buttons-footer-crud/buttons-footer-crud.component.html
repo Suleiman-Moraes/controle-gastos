@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-6">
+        <div align="left" *ngIf="!hiddenCancel">
+            <button pButton pRipple type="button" label="Cancelar" class="p-button-danger" (click)="back()"
+                icon="pi pi-times">
+            </button>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div align="right" *ngIf="!hiddenSave">
+            <button pButton pRipple type="button" label="Salvar" (click)="onClickSave($event)" icon="pi pi-save">
+            </button>
+        </div>
+    </div>
+</div>

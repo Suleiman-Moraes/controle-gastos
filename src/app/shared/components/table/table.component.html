@@ -1,0 +1,21 @@
+<section id="no-more-tables" style="word-wrap: break-word">
+    <div class="table-responsive">
+        <ng-content></ng-content>
+        <p-paginator
+            *ngIf="resources && resources.totalElements != 0 && filterForm?.value?.size <= resources.totalElements"
+            [rows]="filterForm?.value?.size"
+            [style]="{'background-color': 'var(--surface-e)', 'border': '1px solid var(--surface-e)'}"
+            [totalRecords]="(resources ? resources.totalElements : 0)" [rowsPerPageOptions]="[5, 10, 20, 30, 50, 100]"
+            (onPageChange)="onPaginate($event)">
+        </p-paginator>
+        <div *ngIf="!resources || !resources.totalElements || 0 == resources.totalElements">Nehum registro encontrado
+        </div>
+    </div>
+</section>
+<div class="row" *ngIf="resources">
+    <div class="col-md-12">
+        <div align="right">
+            <strong>Total:</strong> {{ resources.totalElements ? resources.totalElements : 0 }}
+        </div>
+    </div>
+</div>

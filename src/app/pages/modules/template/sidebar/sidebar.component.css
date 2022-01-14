@@ -1,0 +1,9 @@
+.nav-item, .form-side, .nav-link {
+    font-family: var(--font-padrao) !important;
+    color: var(--color-menu) !important;
+    border-color: var(--text-color-secondary);
+}
+
+.active {
+    color: black !important;
+}
