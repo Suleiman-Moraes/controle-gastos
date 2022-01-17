@@ -25,6 +25,7 @@ import { InputTemplateComponent } from './components/input-template/input-templa
 import { InputComponent } from './components/input/input.component';
 import { ComboComponent } from './components/combo/combo.component';
 import { ButtonsFooterCrudComponent } from './components/buttons-footer-crud/buttons-footer-crud.component';
+import { TooltipModule } from 'primeng-lts/tooltip';
 
 registerLocaleData(localePt, 'pt');
 
@@ -56,7 +57,8 @@ registerLocaleData(localePt, 'pt');
     ButtonModule,
     ConfirmDialogModule,
     DynamicDialogModule,
-    IMaskModule
+    IMaskModule,
+    TooltipModule
   ],
   exports: [
     CommonModule,
@@ -77,6 +79,7 @@ registerLocaleData(localePt, 'pt');
     ConfirmDialogModule,
     DynamicDialogModule,
     IMaskModule,
+    TooltipModule,
 
     //Components
     TableComponent,

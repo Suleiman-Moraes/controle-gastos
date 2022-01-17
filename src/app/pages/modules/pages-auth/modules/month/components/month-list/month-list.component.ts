@@ -39,7 +39,7 @@ export class MonthListComponent extends BaseResourceListComponent implements OnD
 
     this.ref.onClose.subscribe((ret: any) => {
       if (ret) {
-        alert('Deu bom negão!');
+        this.paginate();
       }
     });
   }

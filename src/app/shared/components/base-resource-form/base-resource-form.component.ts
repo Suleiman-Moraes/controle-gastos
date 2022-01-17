@@ -1,6 +1,7 @@
 import { AfterContentChecked, Component, Injector, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+
 import { BaseResourceService } from "../base-resource-service/base-resource.service";
 import { BaseResourceUtilComponent } from "../base-resource-util/base-resource-util.component";
 
@@ -57,9 +58,6 @@ export abstract class BaseResourceFormComponent extends BaseResourceUtilComponen
             responseApi => {
                 this.blockUI.stop();
                 this.tratarResponseSubimit(responseApi);
-            }, err => {
-                this.blockUI.stop();
-                this.tratarErro(err);
             }
         );
     }

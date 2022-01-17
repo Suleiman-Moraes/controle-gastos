@@ -1,16 +1,17 @@
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JwtInterceptor, JwtModule } from '@auth0/angular-jwt';
 import { BlockUIModule } from 'ng-block-ui';
 import { ConfirmationService, MessageService } from 'primeng-lts/api';
+import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor, JwtModule } from '@auth0/angular-jwt';
-import { environment } from 'src/environments/environment';
 import { AuthGuard } from './pages/modules/pages-not-auth/modules/security/auth.guard';
+import { HandleError } from './shared/handle-error/handle-error';
 
 export function tokenGetter(): string | null {
   return sessionStorage.getItem('token');
@@ -45,6 +46,10 @@ export function tokenGetter(): string | null {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: HandleError
     },
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     {

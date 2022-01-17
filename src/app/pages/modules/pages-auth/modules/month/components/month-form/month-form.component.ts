@@ -35,10 +35,6 @@ export class MonthFormComponent extends BaseResourceFormComponent {
     super(injector, service);
   }
 
-  save(): void {
-    this.close(true);
-  }
-
   close(ret?: any): void {
     this.ref.close(ret);
   }
@@ -53,7 +49,7 @@ export class MonthFormComponent extends BaseResourceFormComponent {
 
   protected posSubmitFormSucesso(): void {
     this.showSuccess('Planilha incluída com sucesso!');
-    this.ref.close(true);
+    this.close(true);
   }
 
   protected setCurrentAction(): void {
