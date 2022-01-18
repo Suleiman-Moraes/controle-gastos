@@ -4,6 +4,7 @@ import localePt from '@angular/common/locales/pt';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { IMaskModule } from 'angular-imask';
 import { ButtonModule } from 'primeng-lts/button';
 import { CalendarModule } from 'primeng-lts/calendar';
 import { CardModule } from 'primeng-lts/card';
@@ -16,16 +17,16 @@ import { InputTextModule } from 'primeng-lts/inputtext';
 import { InputTextareaModule } from 'primeng-lts/inputtextarea';
 import { PaginatorModule } from 'primeng-lts/paginator';
 import { PanelModule } from 'primeng-lts/panel';
-import { IMaskModule } from 'angular-imask';
+import { TooltipModule } from 'primeng-lts/tooltip';
 
-import { TableComponent } from './components/table/table.component'
-import { ValueOrTracePipe } from './pipe/value-or-trace.pipe';
+import { ButtonsFooterCrudComponent } from './components/buttons-footer-crud/buttons-footer-crud.component';
+import { ComboComponent } from './components/combo/combo.component';
 import { FormFieldErrorComponent } from './components/form-field-error/form-field-error.component';
+import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { InputTemplateComponent } from './components/input-template/input-template.component';
 import { InputComponent } from './components/input/input.component';
-import { ComboComponent } from './components/combo/combo.component';
-import { ButtonsFooterCrudComponent } from './components/buttons-footer-crud/buttons-footer-crud.component';
-import { TooltipModule } from 'primeng-lts/tooltip';
+import { TableComponent } from './components/table/table.component'
+import { ValueOrTracePipe } from './pipe/value-or-trace.pipe';
 
 registerLocaleData(localePt, 'pt');
 
@@ -37,7 +38,8 @@ registerLocaleData(localePt, 'pt');
     InputTemplateComponent,
     InputComponent,
     ComboComponent,
-    ButtonsFooterCrudComponent
+    ButtonsFooterCrudComponent,
+    HeaderPageComponent
   ],
   imports: [
     CommonModule,
@@ -88,6 +90,7 @@ registerLocaleData(localePt, 'pt');
     InputComponent,
     ComboComponent,
     ButtonsFooterCrudComponent,
+    HeaderPageComponent,
 
     //Pipes
     ValueOrTracePipe

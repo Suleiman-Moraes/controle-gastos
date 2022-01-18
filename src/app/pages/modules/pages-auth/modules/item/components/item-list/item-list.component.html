@@ -1,4 +1,10 @@
-<p-card header="Planilha">
+<p-card>
+    <ng-template pTemplate="header">
+        <app-header-page title="Planilha - {{ month.monthDescription }}/{{ month.year }}">
+            <a pButton pRipple type="button" label="Voltar" icon="pi pi-arrow-left" routerLink="/authpages/month"
+                routerLinkActive="router-link-active"></a>
+        </app-header-page>
+    </ng-template>
     <p-panel [toggleable]="true">
         <p-header>
             <div align="left" style="color: var(--primary-color);">
@@ -14,8 +20,9 @@
                     <button pButton pRipple type="button" label="Pesquisar" icon="pi pi-search"
                         (click)="paginate();"></button>
                     &nbsp;
-                    <button pButton pRipple type="button" label="Novo" icon="pi pi-plus" (click)="showForm()">
-                    </button>
+                    <button pButton pRipple type="button" label="Ver Lançamentos" icon="pi pi-eye"></button>
+                    &nbsp;
+                    <button pButton pRipple type="button" label="Preencher" icon="pi pi-check-square"></button>
                     &nbsp;
                     <button pButton pRipple type="button" label="Limpar filtros" (click)="buildForm(); paginate();"
                         icon="pi pi-spin pi-spinner"></button>

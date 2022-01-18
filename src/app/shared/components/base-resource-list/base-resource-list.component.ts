@@ -40,7 +40,6 @@ export abstract class BaseResourceListComponent extends BaseResourceUtilComponen
             resolve(0);
         }).then((_) => {
             this.populateForm();
-            this.findByPararamsFilter();
         });
         this.posNgOnInit();
     }
@@ -141,7 +140,9 @@ export abstract class BaseResourceListComponent extends BaseResourceUtilComponen
     }
 
     //OPCIONAIS
-    protected posNgOnInit(): void { }
+    protected posNgOnInit(): void {
+        this.findByPararamsFilter();
+    }
     protected addParamDefault(params: any): any {
         return params;
     }
